@@ -178,7 +178,7 @@ static void update_handler(struct mg_connection *c, int ev, void *ev_data,
       }
       if (url != NULL) {
         s_update_request_conn = c;
-        struct update_context *ctx = updater_context_create();
+        struct update_context *ctx = updater_context_create(-1);
         if (ctx == NULL) {
           mg_send_response_line(c, 409,
                                 "Content-Type: text/plain\r\n"
