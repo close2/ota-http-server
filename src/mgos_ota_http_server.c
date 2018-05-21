@@ -21,7 +21,7 @@ static void handle_update_post(struct mg_connection *c, int ev, void *p) {
   if (ctx == NULL && ev != MG_EV_HTTP_MULTIPART_REQUEST) return;
   switch (ev) {
     case MG_EV_HTTP_MULTIPART_REQUEST: {
-      ctx = updater_context_create();
+      ctx = updater_context_create(-1);
       if (ctx != NULL) {
         ctx->nc = c;
         c->user_data = ctx;
